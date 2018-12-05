@@ -98,3 +98,6 @@
      * [new branch]      dev-ilya -> dev-ilya
 
 
+## Merging work branch to master
+
+In order to merge a work branch to master, one will need to create a Pull Request (you can do that directly in the browser, on the github repo). Once Pull Request is created, please message to our group chat, so that one of us can review the pull request and approve it). After that the pull request is merged to master.
