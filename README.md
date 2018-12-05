@@ -4,17 +4,24 @@
 
     ilya.kopyl@ilyakopyl-ltm 675_phase2_project (master)$ git branch
     * master
+
+
+    ilya.kopyl@ilyakopyl-ltm 675_phase2_project (master)$ git branch dev-ilya
+
     
     ilya.kopyl@ilyakopyl-ltm 675_phase2_project (master)$ git branch
       dev-ilya
     * master
+
     
     ilya.kopyl@ilyakopyl-ltm 675_phase2_project (master)$ git checkout dev-ilya
     Switched to branch 'dev-ilya'
+
     
     ilya.kopyl@ilyakopyl-ltm 675_phase2_project (dev-ilya)$ git branch
     * dev-ilya
       master
+
     
     ilya.kopyl@ilyakopyl-ltm 675_phase2_project (dev-ilya)*$ git status
     On branch dev-ilya
@@ -30,7 +37,9 @@
         .gitignore
 
     no changes added to commit (use "git add" and/or "git commit -a")
-    gilya.kopyl@ilyakopyl-ltm 675_phase2_project (dev-ilya)*$ git add .gitignore 
+
+
+    ilya.kopyl@ilyakopyl-ltm 675_phase2_project (dev-ilya)*$ git add .gitignore 
 
 
     ilya.kopyl@ilyakopyl-ltm 675_phase2_project (dev-ilya)*$ git status
@@ -46,11 +55,16 @@
 
         modified:   README.md
 
+
     ilya.kopyl@ilyakopyl-ltm 675_phase2_project (dev-ilya)*$ git commit -m "Added .gitignore"
     [dev-ilya dbc9917] Added .gitignore
      1 file changed, 1 insertion(+)
      create mode 100644 .gitignore
+
+
     ilya.kopyl@ilyakopyl-ltm 675_phase2_project (dev-ilya)*$ git add README.md
+
+
     ilya.kopyl@ilyakopyl-ltm 675_phase2_project (dev-ilya)*$ git status
     On branch dev-ilya
     Changes to be committed:
@@ -82,3 +96,8 @@
     remote:
     To github.com:ikopyl/675_phase2_project.git
      * [new branch]      dev-ilya -> dev-ilya
+
+
+## Merging work branch to master
+
+In order to merge a work branch to master, one will need to create a Pull Request (you can do that directly in the browser, on the github repo). Once Pull Request is created, please message to our group chat, so that one of us can review the pull request and approve it). After that the pull request is merged to master.
