@@ -5,6 +5,18 @@
 INSERT INTO FilmProductionStudio(StudioID, Name) VALUES(10001, 'Columbia Pictures');
 INSERT INTO FilmProductionStudio(StudioID, Name) VALUES(10002, 'Miramax Films');
 
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10003, "The Walt Disney Company");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10004, "Warner Bros.");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10005, "Paramount Pictures");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10006, "Universal Pictures");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10007, "20th Century Fox");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10008, "Lionsgate");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10009, "DreamWork Studios");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10010, "Metro-Goldwyn-Mayer");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10011, "Sony Pictures");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10012, "LucasFilm");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10013, "Marvel Studios");
+
 /*==================================================================================*/
 
 
