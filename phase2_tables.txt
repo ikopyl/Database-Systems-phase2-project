@@ -1,7 +1,7 @@
 
 CREATE TABLE FilmProductionStudio (
 	StudioID INTEGER,
-	NAME VARCHAR(255) NOT NULL,
+	Name VARCHAR(255) NOT NULL,
 	PRIMARY KEY (StudioID)
 );
 
@@ -66,3 +66,5 @@ CREATE TABLE ShootingSchedule(
 	FOREIGN KEY (LocationID) REFERENCES Location
 	ON DELETE CASCADE
 );
+
+

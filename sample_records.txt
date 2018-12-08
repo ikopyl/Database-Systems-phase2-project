@@ -1,0 +1,142 @@
+/*==================================================================================*/
+/* 01 - inserting FilmProductionStudio records here */
+/*==================================================================================*/
+
+INSERT INTO FilmProductionStudio(StudioID, Name) VALUES(10001, 'Columbia Pictures');
+INSERT INTO FilmProductionStudio(StudioID, Name) VALUES(10002, 'Miramax Films');
+
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10003, "The Walt Disney Company");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10004, "Warner Bros.");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10005, "Paramount Pictures");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10006, "Universal Pictures");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10007, "20th Century Fox");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10008, "Lionsgate");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10009, "DreamWork Studios");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10010, "Metro-Goldwyn-Mayer");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10011, "Sony Pictures");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10012, "LucasFilm");
+INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10013, "Marvel Studios");
+
+/*==================================================================================*/
+
+
+
+/*==================================================================================*/
+/* 02 - inserting FilmIndustryWorker records here */
+/*==================================================================================*/
+
+INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorsGuild) VALUES('123-45-1001', 'Stanley', 'Kubrick', 'Male', 0);
+INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorsGuild) VALUES('123-45-1002', 'Quentin', 'Tarantino', 'Male', 1);
+
+INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorsGuild) VALUES('123-45-1003', 'Peter', 'Sellers', 'Male', 1);
+INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorsGuild) VALUES('123-45-1004', 'Sterling', 'Hayden', 'Male', 1);
+
+
+INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorsGuild) VALUES('123-45-1005', 'John', 'Travolta', 'Male', 1);
+INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorsGuild) VALUES('123-45-1006', 'Uma', 'Thurman', 'Female', 1);
+INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorsGuild) VALUES('123-45-1007', 'Bruce', 'Willis', 'Male', 1);
+INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorsGuild) VALUES('123-45-1008', 'Samuel L', 'Jackson', 'Male', 1);
+
+INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorsGuild) VALUES('123-45-1009', 'Amanda', 'Plummer', 'Female', 1);
+INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorsGuild) VALUES('123-45-1010', 'Harvey', 'Keitel', 'Male', 1);
+INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorsGuild) VALUES('123-45-1011', 'Tim', 'Roth', 'Male', 1);
+INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorsGuild) VALUES('123-45-1012', 'Christopher', 'Walken', 'Male', 1);
+
+/*==================================================================================*/
+
+
+
+/*==================================================================================*/
+/* 03 - inserting HasContract records here */
+/*==================================================================================*/
+
+INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned) VALUES(20001, 10001, '123-45-1001', 3000000.00, 1962-07-31);
+INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned) VALUES(20002, 10002, '123-45-1002', 1000000.00, 1993-05-20);
+
+INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned) VALUES(20003, 10001, '123-45-1003', 100000.00, 1962-08-15);
+INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned) VALUES(20004, 10001, '123-45-1004', 100000.00, 1962-08-15);
+
+INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned) VALUES(20005, 10002, '123-45-1005', 250000.00, 1993-06-15);
+INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned) VALUES(20006, 10002, '123-45-1006', 250000.00, 1993-06-15);
+INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned) VALUES(20007, 10002, '123-45-1007', 250000.00, 1993-06-15);
+INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned) VALUES(20008, 10002, '123-45-1008', 250000.00, 1993-06-15);
+
+INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned) VALUES(20009, 10002, '123-45-1009', 150000.00, 1993-06-17);
+INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned) VALUES(20010, 10002, '123-45-1010', 150000.00, 1993-06-17);
+INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned) VALUES(20011, 10002, '123-45-1011', 50000.00, 1993-06-17);
+INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned) VALUES(20012, 10002, '123-45-1012', 50000.00, 1993-06-17);
+
+/*==================================================================================*/
+
+
+
+/*==================================================================================*/
+/* 04 - inserting Movie records here */
+/*==================================================================================*/
+
+INSERT INTO Movie(MovieID, StudioID, DirectorSSN, Title, Budget) VALUES(30001, 10001, '123-45-1001', 'Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb', 1800000.00);
+INSERT INTO Movie(MovieID, StudioID, DirectorSSN, Title, Budget) VALUES(30002, 10002, '123-45-1002', 'Pulp Fiction', 8500000.00);
+
+/*==================================================================================*/
+
+
+
+/*==================================================================================*/
+/* 05 - inserting Actor records here */
+/*==================================================================================*/
+
+INSERT INTO Actor(SSN, MovieID) VALUES('123-45-1002', 30002);
+INSERT INTO Actor(SSN, MovieID) VALUES('123-45-1005', 30002);
+INSERT INTO Actor(SSN, MovieID) VALUES('123-45-1006', 30002);
+INSERT INTO Actor(SSN, MovieID) VALUES('123-45-1007', 30002);
+INSERT INTO Actor(SSN, MovieID) VALUES('123-45-1008', 30002);
+
+INSERT INTO Actor(SSN, MovieID) VALUES('123-45-1003', 30001);
+INSERT INTO Actor(SSN, MovieID) VALUES('123-45-1004', 30001);
+
+/*==================================================================================*/
+
+
+
+
+/*==================================================================================*/
+/* 06 - inserting Location records here */
+/*==================================================================================*/
+
+INSERT INTO Location(LocationID, Name, City, State, Country) VALUES(60001, 'Shepperton Studios', 'Shepperton', 'Surrey', 'UK');
+INSERT INTO Location(LocationID, Name, City, State, Country) VALUES(60002, 'Culver City Warehouse', 'Culver City', 'California', 'USA');
+INSERT INTO Location(LocationID, Name, City, State, Country) VALUES(60003, 'Hawthorne Grill', 'Hawthorne', 'California', 'USA');
+
+/*==================================================================================*/
+
+
+
+/*==================================================================================*/
+/* 07 - inserting ShootingSchedule records here */
+/*==================================================================================*/
+
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70001, 30001, 60001, 1962-10-13);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70002, 30001, 60001, 1962-10-14);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70003, 30001, 60001, 1962-10-15);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70004, 30001, 60001, 1962-10-16);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70005, 30001, 60001, 1962-10-17);
+
+
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70006, 30002, 60002, 1993-09-20);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70007, 30002, 60002, 1993-09-21);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70008, 30002, 60002, 1993-09-22);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70009, 30002, 60002, 1993-09-23);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70010, 30002, 60002, 1993-09-24);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70011, 30002, 60002, 1993-09-25);
+
+
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70012, 30002, 60003, 1993-11-01);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70013, 30002, 60003, 1993-11-02);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70014, 30002, 60003, 1993-11-03);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70015, 30002, 60003, 1993-11-04);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70016, 30002, 60003, 1993-11-05);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70017, 30002, 60003, 1993-11-06);
+
+
+
+/*==================================================================================*/
