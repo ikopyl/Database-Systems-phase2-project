@@ -1,0 +1,17 @@
+/* Find the names of all movies that were shot in more than one location */
+SELECT M.Title
+FROM Movie M
+WHERE M.MovieID IN (
+	SELECT S.MovieID
+	FROM ShootingSchedule S
+	GROUP BY S.MovieID
+	HAVING COUNT(DISTINCT LocationID) >= 2
+);
+
+
+/* Find for how many days each movie was shot at each location */
+SELECT M.Title, L.Name, COUNT(DISTINCT S.Date)
+FROM Movie M, Location L, ShootingSchedule S
+WHERE M.MovieID = S.MovieID
+  AND L.LocationID = S.LocationID
+GROUP BY M.Title, L.Name
