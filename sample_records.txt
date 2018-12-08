@@ -13,7 +13,7 @@ INSERT INTO FilmProductionStudio(StudioID, Name) VALUES(10002, 'Miramax Films');
 /* 02 - inserting FilmIndustryWorker records here */
 /*==================================================================================*/
 
-INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorsGuild) VALUES('123-45-1001', 'Stanley', 'Kubrick', 'Male', 1);
+INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorsGuild) VALUES('123-45-1001', 'Stanley', 'Kubrick', 'Male', 0);
 INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorsGuild) VALUES('123-45-1002', 'Quentin', 'Tarantino', 'Male', 1);
 
 INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorsGuild) VALUES('123-45-1003', 'Peter', 'Sellers', 'Male', 1);
@@ -103,19 +103,28 @@ INSERT INTO Location(LocationID, Name, City, State, Country) VALUES(60003, 'Hawt
 /* 07 - inserting ShootingSchedule records here */
 /*==================================================================================*/
 
-INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70001, 30001, 60001);
-INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70002, 30002, 60002, 1993-09-20);
-INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70003, 30002, 60002, 1993-09-21);
-INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70004, 30002, 60002, 1993-09-22);
-INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70005, 30002, 60002, 1993-09-23);
-INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70006, 30002, 60002, 1993-09-24);
-INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70007, 30002, 60002, 1993-09-25);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70001, 30001, 60001, 1962-10-13);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70002, 30001, 60001, 1962-10-14);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70003, 30001, 60001, 1962-10-15);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70004, 30001, 60001, 1962-10-16);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70005, 30001, 60001, 1962-10-17);
 
 
-INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70008, 30002, 60003, 1962-10-13);
-INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70009, 30002, 60003, 1962-10-14);
-INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70010, 30002, 60003, 1962-10-15);
-INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70011, 30002, 60003, 1962-10-16);
-INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70012, 30002, 60003, 1962-10-17);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70006, 30002, 60002, 1993-09-20);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70007, 30002, 60002, 1993-09-21);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70008, 30002, 60002, 1993-09-22);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70009, 30002, 60002, 1993-09-23);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70010, 30002, 60002, 1993-09-24);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70011, 30002, 60002, 1993-09-25);
+
+
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70012, 30002, 60003, 1993-11-01);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70013, 30002, 60003, 1993-11-02);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70014, 30002, 60003, 1993-11-03);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70015, 30002, 60003, 1993-11-04);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70016, 30002, 60003, 1993-11-05);
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date) VALUES(70017, 30002, 60003, 1993-11-06);
+
+
 
 /*==================================================================================*/
