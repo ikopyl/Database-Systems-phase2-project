@@ -25,3 +25,12 @@ WHERE FPS.StudioID NOT IN (
 	FROM Movie M
 );
 
+
+/* Find Director's name and name of the movie with budget > $2 Million */
+SELECT M.title, FIW.FirstName, FIW.LastName
+FROM Movie M, FilmIndustryWorker FIW
+WHERE M.DirectorSSN = FIW.SSN
+  AND M.budget > 2000000
+
+
+
