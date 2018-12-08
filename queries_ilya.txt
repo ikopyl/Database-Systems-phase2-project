@@ -15,3 +15,13 @@ FROM Movie M, Location L, ShootingSchedule S
 WHERE M.MovieID = S.MovieID
   AND L.LocationID = S.LocationID
 GROUP BY M.Title, L.Name
+
+
+/* Find all Film Production Studios that did not produce any movies (according to the database) */
+SELECT FPS.Name
+FROM FilmProductionStudio FPS
+WHERE FPS.StudioID NOT IN (
+	SELECT M.StudioID
+	FROM Movie M
+);
+
