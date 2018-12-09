@@ -2,29 +2,46 @@
 
 INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(0, "The Walt Disney Company");
 INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(1, "Warner Bros.");
-INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(2, "Paramount Pictures");
-INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(3, "Universal Pictures");
-INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(4, "20th Century Fox");
-INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(5, "Lionsgate");
-INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(6, "DreamWork Studios");
-INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(7, "Metro-Goldwyn-Mayer");
-INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(8, "Sony Pictures");
-INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(9, "LucasFilm");
-INSERT INTO FilmProductionStudio(StudioID, NAME) VALUES(10, "Marvel Studios");
 
 INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorGuild)
   VALUES("119-95-7981", "Dwayne", "Johnson", "Male", "Y");
+INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorGuild)
+  VALUES("862-12-6659", "Ron", "Clements", "Male", "Y");
+INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorGuild)
+  VALUES("569-23-1360", "Brad", "Payton", "Male", "Y");
+INSERT INTO FilmIndustryWorker(SSN, FirstName, LastName, Gender, MemberOfScreenActorGuild)
+  VALUES("589-17-5989", "Naomie", "Harris", "Female", "Y");
   
 INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned)
   VALUES("0", "0", "119-95-7981", 34000000, 2015-10-19)
+INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned)
+  VALUES("1", "0", "862-12-6659", 17000000, 2013-05-09)
+INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned)
+  VALUES("2", "1", "119-95-7981", 64000000, 2016-08-10)
+INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned)
+  VALUES("3", "1", "569-23-1360", 42000000, 2014-04-05)
+INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned)
+  VALUES("4", "1", "589-17-5989", 4000000, 2017-01-04)
 
 INSERT INTO Movie(MovieID, StudioID, DirectorSSN, Title, Budget)
   VALUES("0", "0", "862-12-6659", "Moana", 150000000);
+INSERT INTO Movie(MovieID, StudioID, DirectorSSN, Title, Budget)
+  VALUES("1", "1", "862-12-6659", "Rampage", 120000000);
   
 INSERT INTO Actor(SSN, MovieID) VALUES("119-95-7981", "0");
+INSERT INTO Actor(SSN, MovieID) VALUES("119-95-7981", "1");
+INSERT INTO Actor(SSN, MovieID) VALUES("589-17-5989", "1");
   
 INSERT INTO Location(LocationID, Name, City, State, Country)
   Values("0", "Disney Recording Studio", "Hollywood", "California", "United States of America");
+INSERT INTO Location(LocationID, Name, City, State, Country)
+  Values("1", "Creepy Woods", "Gainsville", "Georgia", "United States of America");
+INSERT INTO Location(LocationID, Name, City, State, Country)
+  Values("2", "Warner Studios", "Los Angeles", "California", "United States of America");
   
 INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date)
   Values("0", "0", "0", 2017-10-19)
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date)
+  Values("1", "1", "1", 2017-10-19)
+INSERT INTO ShootingSchedule(ScheduleID, MovieID, LocationID, Date)
+  Values("2", "1", "2", 2017-10-19)
