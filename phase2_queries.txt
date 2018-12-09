@@ -1,10 +1,12 @@
 /*  */
 SELECT COUNT(*)
 FROM FilmIndustryWorker FIW, Movie M
-WHERE FIW.FirstName = 'Bruce' AND FIW.LastName = 'Willis' AND M.DirectorSSN = FIW.SSN
+WHERE FIW.FirstName = 'Bruce' 
+  AND FIW.LastName = 'Willis' 
+  AND M.DirectorSSN = FIW.SSN
 
 
-/*  */
+/* done */
 SELECT M.title
 FROM Movie M
 WHERE M.budget > 2000000
