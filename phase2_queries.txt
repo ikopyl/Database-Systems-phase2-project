@@ -1,25 +1,42 @@
+/*  */
 SELECT COUNT(*)
 FROM FilmIndustryWorker FIW, Movie M
-WHERE FIW.FirstName = 'Bruce' AND FIW.LastName = 'Willis' AND M.DirectorSSN = FIW.SSN
+WHERE FIW.FirstName = 'Bruce' 
+  AND FIW.LastName = 'Willis' 
+  AND M.DirectorSSN = FIW.SSN
 
+
+/* done */
 SELECT M.title
 FROM Movie M
-WHERE M.budget > 20000000
+WHERE M.budget > 2000000
 GROUP BY M.DirectorSSN
-HAVING COUNT(*) >= 1
 
+
+/*  */
 SELECT SS.Date
 FROM ShootingSchedule SS
-WHERE EXISTS (SELECT * 
-	      FROM Location L
-	      WHERE L.city = 'Hawthorne' AND SS.LocationID = L.LocationID)
+WHERE EXISTS (
+        SELECT * 
+	    FROM Location L
+	    WHERE L.city = 'Hawthorne' 
+          AND SS.LocationID = L.LocationID
+)
 
+
+/*  */
 SELECT FIW.FirstName, FIW.LastName
 FROM FilmIndustryWorker FIW, HasContract HC
-WHERE FIW.SSN = HC.SSN AND HC.Compensation = (SELECT MAX(HC2.Compensation)
-					      FROM HasContract HC2)
+WHERE FIW.SSN = HC.SSN 
+  AND HC.Compensation = (
+          SELECT MAX(HC2.Compensation)
+		  FROM HasContract HC2
+)
 
+
+/*  */
 SELECT FIW.FirstName, FIW.LastName
 FROM FilmIndustryWorker FIW, HasContract HC
-WHERE FIW.SSN = HC.SSN AND HC.Compensation >= ALL(SELECT HC2.Compensation
-					      FROM HasContract HC2)
+WHERE FIW.SSN = HC.SSN 
+  AND HC.Compensation >= ALL (SELECT HC2.Compensation
+                              FROM HasContract HC2)

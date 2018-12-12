@@ -8,6 +8,42 @@ WHERE M.MovieID IN (
 	HAVING COUNT(DISTINCT LocationID) >= 2
 );
 
+/* Creating INDEX 1 */
+CREATE INDEX IndexMovieLocation
+ON ShootingSchedule (MovieID, LocationID);
+
+/* Testing INDEX 1 */
+EXPLAIN QUERY PLAN SELECT M.Title
+FROM Movie M
+WHERE M.MovieID IN (
+	SELECT S.MovieID
+	FROM ShootingSchedule S
+	GROUP BY S.MovieID
+	HAVING COUNT(DISTINCT LocationID) >= 2
+);
+
+
+
+/* Calculate a compensation of all actors per each movie */
+SELECT M.Title, SUM(H.Compensation) AS 'Total Actors Compensation'
+FROM HasContract H, Actor A, Movie M
+WHERE H.SSN = A.SSN
+  AND A.MovieID = M.MovieID
+GROUP BY M.Title
+
+/* Creating INDEX 2 */
+CREATE INDEX WorkersCompensation
+On HasContract (SSN, Compensation);
+
+/* Testing INDEX 2 */
+EXPLAIN QUERY PLAN SELECT M.Title, SUM(H.Compensation) AS 'Total Actors Compensation'
+FROM HasContract H, Actor A, Movie M
+WHERE H.SSN = A.SSN
+  AND A.MovieID = M.MovieID
+GROUP BY M.Title
+
+
+
 
 /* Find for how many days each movie was shot at each location */
 SELECT M.Title, L.Name, COUNT(DISTINCT S.Date)
@@ -15,6 +51,53 @@ FROM Movie M, Location L, ShootingSchedule S
 WHERE M.MovieID = S.MovieID
   AND L.LocationID = S.LocationID
 GROUP BY M.Title, L.Name
+
+
+
+
+/* Find names of all actors (who are not directors) with the largest compensation */
+SELECT FIW.FirstName, FIW.LastName, HC.Compensation
+FROM FilmIndustryWorker FIW, HasContract HC
+WHERE FIW.SSN = HC.SSN
+  AND HC.Compensation = (SELECT MAX(HC2.Compensation)
+							FROM HasContract HC2
+							WHERE HC2.SSN NOT IN (SELECT M.DirectorSSN FROM Movie M)
+                           AND HC2.SSN IN (SELECT A.SSN FROM Actor A)
+)
+
+/* semantically equivalent SQL query, with ALL: */
+SELECT FIW.FirstName, FIW.LastName, HC.Compensation
+FROM FilmIndustryWorker FIW, HasContract HC
+WHERE FIW.SSN = HC.SSN
+  AND HC.Compensation >= ALL (SELECT HC2.Compensation
+							     FROM HasContract HC2
+							     WHERE HC2.SSN NOT IN (SELECT M.DirectorSSN FROM Movie M)
+                                AND HC2.SSN IN (SELECT A.SSN FROM Actor A)
+)
+
+
+
+
+/* Find all directors (who are not actors) with the biggest compensation */
+SELECT FIW.FirstName, FIW.LastName, HC.Compensation
+FROM FilmIndustryWorker FIW, HasContract HC
+WHERE FIW.SSN = HC.SSN
+  AND HC.Compensation = (SELECT MAX(HC2.Compensation)
+							FROM HasContract HC2
+							WHERE HC2.SSN IN (SELECT M.DirectorSSN FROM Movie M)
+                           AND HC2.SSN NOT IN (SELECT A.SSN FROM Actor A)
+)
+
+/* Semantically equivalent SQL query, with ALL: */
+SELECT FIW.FirstName, FIW.LastName, HC.Compensation
+FROM FilmIndustryWorker FIW, HasContract HC
+WHERE FIW.SSN = HC.SSN
+  AND HC.Compensation >= ALL (SELECT HC2.Compensation
+							     FROM HasContract HC2
+							     WHERE HC2.SSN IN (SELECT M.DirectorSSN FROM Movie M)
+                                AND HC2.SSN NOT IN (SELECT A.SSN FROM Actor A)
+)
+
 
 
 /* Find all Film Production Studios that did not produce any movies (according to the database) */
@@ -25,3 +108,31 @@ WHERE FPS.StudioID NOT IN (
 	FROM Movie M
 );
 
+
+/* Find Director's name and name of the movie with budget > $2 Million */
+SELECT M.title, FIW.FirstName, FIW.LastName
+FROM Movie M, FilmIndustryWorker FIW
+WHERE M.DirectorSSN = FIW.SSN
+  AND M.budget > 2000000
+
+
+
+
+
+
+/*  */
+SELECT FIW.FirstName, FIW.LastName
+FROM FilmIndustryWorker FIW, HasContract HC
+WHERE FIW.SSN = HC.SSN
+  AND HC.Compensation = (
+          SELECT MAX(HC2.Compensation)
+		  FROM HasContract HC2
+)
+
+
+/*  */
+SELECT FIW.FirstName, FIW.LastName
+FROM FilmIndustryWorker FIW, HasContract HC
+WHERE FIW.SSN = HC.SSN
+  AND HC.Compensation >= ALL (SELECT HC2.Compensation
+                              FROM HasContract HC2)

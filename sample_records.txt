@@ -77,6 +77,9 @@ INSERT INTO HasContract(ContractID, StudioID, SSN, Compensation, DateSigned) VAL
 INSERT INTO Movie(MovieID, StudioID, DirectorSSN, Title, Budget) VALUES(30001, 10001, '123-45-1001', 'Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb', 1800000.00);
 INSERT INTO Movie(MovieID, StudioID, DirectorSSN, Title, Budget) VALUES(30002, 10002, '123-45-1002', 'Pulp Fiction', 8500000.00);
 
+INSERT INTO Movie(MovieID, StudioID, DirectorSSN, Title, Budget) VALUES(30003, 10002, '123-45-1002', 'Reservoir Dogs', 1500000.00);
+INSERT INTO Movie(MovieID, StudioID, DirectorSSN, Title, Budget) VALUES(30004, 10001, '123-45-1001', '2001 - A Space Odyssey', 10500000.00);
+
 /*==================================================================================*/
 
 
