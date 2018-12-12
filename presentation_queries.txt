@@ -1,0 +1,106 @@
+
+/* query01 - Find the names of all movies that were shot in more than one location */
+SELECT M.Title
+FROM Movie M
+WHERE M.MovieID IN (
+	SELECT S.MovieID
+	FROM ShootingSchedule S
+	GROUP BY S.MovieID
+	HAVING COUNT(DISTINCT LocationID) >= 2);
+
+
+/* INDEX 1 */
+CREATE INDEX IndexMovieLocation
+ON ShootingSchedule (MovieID, LocationID);
+
+/* INDEX 1 TEST */
+EXPLAIN QUERY PLAN SELECT M.Title
+FROM Movie M
+WHERE M.MovieID IN (
+	SELECT S.MovieID
+	FROM ShootingSchedule S
+	GROUP BY S.MovieID
+	HAVING COUNT(DISTINCT LocationID) >= 2);
+
+
+
+/* query02 - Find for how many days each movie was shot at each location */
+SELECT M.Title AS 'Movie Title', L.Name AS 'Shooting Location', COUNT(DISTINCT S.Date) AS 'Days Shot'
+FROM Movie M, Location L, ShootingSchedule S
+WHERE M.MovieID = S.MovieID
+  AND L.LocationID = S.LocationID
+GROUP BY M.Title, L.Name;
+
+
+
+/* query03 - Find the names of all Film Production Studios that did not produce any movies (according to the database) */
+SELECT FPS.Name AS 'Name of Production Studio'
+FROM FilmProductionStudio FPS
+WHERE FPS.StudioID NOT IN (
+	SELECT M.StudioID
+	FROM Movie M);
+
+
+/* query04 - Find Director's name and name of the movie with budget > $2 Million */
+SELECT M.Title, FIW.FirstName, FIW.LastName
+FROM Movie M, FilmIndustryWorker FIW
+WHERE M.DirectorSSN = FIW.SSN
+  AND M.budget > 2000000;
+
+
+/* query05 - Find a name of the Film Industry worker with highest compensation */
+SELECT FIW.FirstName, FIW.LastName
+FROM FilmIndustryWorker FIW, HasContract HC
+WHERE FIW.SSN = HC.SSN
+  AND HC.Compensation = (SELECT MAX(HC2.Compensation)
+							FROM HasContract HC2);
+
+
+/* Equivalent statement to the above one */
+SELECT FIW.FirstName, FIW.LastName
+FROM FilmIndustryWorker FIW, HasContract HC
+WHERE FIW.SSN = HC.SSN
+  AND HC.Compensation >= ALL (SELECT HC2.Compensation
+                              FROM HasContract HC2);
+
+
+
+/* query06 - Calculate a compensation of all actors per each movie */
+SELECT M.Title, SUM(H.Compensation) AS 'Total Actors Compensation'
+FROM HasContract H, Actor A, Movie M
+WHERE H.SSN = A.SSN
+  AND A.MovieID = M.MovieID
+GROUP BY M.Title;
+
+/* INDEX 2 */
+CREATE INDEX WorkersCompensation
+On HasContract (SSN, Compensation);
+
+/* INDEX 2 TEST */
+EXPLAIN QUERY PLAN SELECT M.Title, SUM(H.Compensation) AS 'Total Actors Compensation'
+FROM HasContract H, Actor A, Movie M
+WHERE H.SSN = A.SSN
+  AND A.MovieID = M.MovieID
+GROUP BY M.Title;
+
+
+
+/* query07 - Find names of all actors (who are not directors) with the largest compensation */
+SELECT FIW.FirstName, FIW.LastName, HC.Compensation
+FROM FilmIndustryWorker FIW, HasContract HC
+WHERE FIW.SSN = HC.SSN
+  AND HC.Compensation = (SELECT MAX(HC2.Compensation) 
+							FROM HasContract HC2
+							WHERE HC2.SSN NOT IN (SELECT M.DirectorSSN FROM Movie M)
+                           AND HC2.SSN IN (SELECT A.SSN FROM Actor A));
+
+
+/* query08 - Find all directors (who are not actors) with the biggest compensation */
+SELECT FIW.FirstName, FIW.LastName, HC.Compensation
+FROM FilmIndustryWorker FIW, HasContract HC
+WHERE FIW.SSN = HC.SSN
+  AND HC.Compensation = (SELECT MAX(HC2.Compensation) 
+							FROM HasContract HC2
+							WHERE HC2.SSN IN (SELECT M.DirectorSSN FROM Movie M)
+                           AND HC2.SSN NOT IN (SELECT A.SSN FROM Actor A));
+
